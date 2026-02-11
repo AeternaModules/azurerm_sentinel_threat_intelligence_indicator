@@ -41,14 +41,14 @@ EOT
     validate_from_utc   = string
     workspace_id        = string
     tags                = optional(list(string))
-    revoked             = optional(bool, false)
+    revoked             = optional(bool) # Default: false
     pattern_version     = optional(string)
     object_marking_refs = optional(list(string))
     description         = optional(string)
     extension           = optional(string)
     threat_types        = optional(list(string))
     created_by          = optional(string)
-    confidence          = optional(number, -1)
+    confidence          = optional(number) # Default: -1
     language            = optional(string)
     validate_until_utc  = optional(string)
     external_reference = optional(object({
