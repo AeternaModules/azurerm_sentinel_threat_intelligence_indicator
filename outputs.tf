@@ -1,3 +1,7 @@
+output "sentinel_threat_intelligence_indicators_id" {
+  description = "Map of id values across all sentinel_threat_intelligence_indicators, keyed the same as var.sentinel_threat_intelligence_indicators"
+  value       = { for k, v in azurerm_sentinel_threat_intelligence_indicator.sentinel_threat_intelligence_indicators : k => v.id }
+}
 output "sentinel_threat_intelligence_indicators_confidence" {
   description = "Map of confidence values across all sentinel_threat_intelligence_indicators, keyed the same as var.sentinel_threat_intelligence_indicators"
   value       = { for k, v in azurerm_sentinel_threat_intelligence_indicator.sentinel_threat_intelligence_indicators : k => v.confidence }
