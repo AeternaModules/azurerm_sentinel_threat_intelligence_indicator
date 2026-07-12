@@ -51,20 +51,20 @@ EOT
     confidence          = optional(number) # Default: -1
     language            = optional(string)
     validate_until_utc  = optional(string)
-    external_reference = optional(object({
+    external_reference = optional(list(object({
       description = optional(string)
       hashes      = optional(map(string))
       source_name = optional(string)
       url         = optional(string)
-    }))
-    granular_marking = optional(object({
+    })))
+    granular_marking = optional(list(object({
       language    = optional(string)
       marking_ref = optional(string)
       selectors   = optional(list(string))
-    }))
-    kill_chain_phase = optional(object({
+    })))
+    kill_chain_phase = optional(list(object({
       name = optional(string)
-    }))
+    })))
   }))
 }
 

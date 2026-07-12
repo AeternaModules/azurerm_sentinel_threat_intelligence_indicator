@@ -20,7 +20,7 @@ resource "azurerm_sentinel_threat_intelligence_indicator" "sentinel_threat_intel
   validate_until_utc  = each.value.validate_until_utc
 
   dynamic "external_reference" {
-    for_each = each.value.external_reference != null ? [each.value.external_reference] : []
+    for_each = each.value.external_reference != null ? each.value.external_reference : []
     content {
       description = external_reference.value.description
       hashes      = external_reference.value.hashes
@@ -30,7 +30,7 @@ resource "azurerm_sentinel_threat_intelligence_indicator" "sentinel_threat_intel
   }
 
   dynamic "granular_marking" {
-    for_each = each.value.granular_marking != null ? [each.value.granular_marking] : []
+    for_each = each.value.granular_marking != null ? each.value.granular_marking : []
     content {
       language    = granular_marking.value.language
       marking_ref = granular_marking.value.marking_ref
@@ -39,7 +39,7 @@ resource "azurerm_sentinel_threat_intelligence_indicator" "sentinel_threat_intel
   }
 
   dynamic "kill_chain_phase" {
-    for_each = each.value.kill_chain_phase != null ? [each.value.kill_chain_phase] : []
+    for_each = each.value.kill_chain_phase != null ? each.value.kill_chain_phase : []
     content {
       name = kill_chain_phase.value.name
     }
